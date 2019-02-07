@@ -40,13 +40,13 @@ public class rsa{
 		String cipherText = "";
 		for(int i = 0; i<plainText.length(); i++){
 			int ch = (int) plainText.charAt(i);
-			cipherText += encrypt(BigInteger.valueOf(ch), e, n).toString(16) + '.';
+			cipherText += encrypt(BigInteger.valueOf(ch), e, n).toString(10) + '.';
 		}
 		
 		 String[] encrypted = cipherText.split("\\.");
 		 String decryptedText = "";
 		 for(int i = 0; i < encrypted.length; i++){
-		 	String decrypted = decrypt(new BigInteger(encrypted[i], 16), d, n).toString();
+		 	String decrypted = decrypt(new BigInteger(encrypted[i], 10), d, n).toString();
 		 	decryptedText += (char) Integer.parseInt(decrypted);
 		 }
 
